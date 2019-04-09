@@ -1,0 +1,21 @@
+{
+  "name": "vue2-leaflet-fogofwar",
+  "version": "0.9.0",
+  "description": "Fog of war plugin extension for vue2-leaflet package",
+  "main": "plugin.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:guillaumejounel/vue2-leaflet-fogofwar.git"
+  },
+  "keywords": [
+    "vue2",
+    "leaflet",
+    "fogofwar"
+  ],
+  "author": "Guillaume Jounel (http://guillaumejounel.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guillaumejounel/vue2-leaflet-fogofwar.git/issues"
+  },
+  "homepage": "https://github.com/guillaumejounel/vue2-leaflet-fogofwar.git/#readme"
+}
