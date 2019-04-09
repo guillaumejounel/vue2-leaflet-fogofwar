@@ -1,8 +1,8 @@
-# vue2-leaflet-polygonfogofwar
+# vue2-leaflet-fogofwar
 
 ## Install
 
-    npm install --save vue2-leaflet-polygonfogofwar
+    npm install --save vue2-leaflet-fogofwar
 
 ## Demo
 
@@ -12,9 +12,10 @@ Soon
 
 In `main.js`:
 
-    import PolygonFogOfWar from "vue2-leaflet-polygonfogofwar";
+    import { PolygonFogOfWar, CircleFogOfWar } from "vue2-leaflet-fogofwar";
     ...
     Vue.component("l-polygon-fog-of-war", PolygonFogOfWar);
+    Vue.component("l-circle-fog-of-war", CircleFogOfWar);
 
 In your component:
 
@@ -23,14 +24,23 @@ In your component:
       :opacity="0"
       :fillOpacity="0"
       fillColor="black"
-      mask="mymask"
+      mask="myMask"
+    />
+    <l-circle-fog-of-war
+      :fillOpacity="0"
+      :maskOpacity="0.7"
+      :latLng="..."
+      :radius="..."
+      fillColor="black"
+      maskId="myMask"
     />
     <l-polygon-fog-of-war
       :fillOpacity="0"
       :maskOpacity="0.7"
       :latLngs="..."
       fillColor="black"
-      maskId="mymask"
+      :opacity="0"
+      maskId="myMask"
     />
 
 ## Author
@@ -40,4 +50,4 @@ In your component:
 ## License
 
 MIT
-polygon fillpattern plugin extension for vue2-leaflet package
+fogofwar plugin extension for vue2-leaflet package
