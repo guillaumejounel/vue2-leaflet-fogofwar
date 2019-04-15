@@ -35,13 +35,13 @@ import L from "leaflet";
 
           let _f1 = L.SVG.create("feGaussianBlur");
           _f1.setAttribute("in", "SourceAlpha");
-          _f1.setAttribute("stdDeviation", 10);
+          _f1.setAttribute("stdDeviation", layer.options.stdDeviation);
           _f.appendChild(_f1);
 
           let _f2 = L.SVG.create("feComponentTransfer");
           let _f21 = L.SVG.create("feFuncA");
           _f21.setAttribute("type", "linear");
-          _f21.setAttribute("slope", 2);
+          _f21.setAttribute("slope", layer.options.slope);
           _f2.appendChild(_f21);
           _f.appendChild(_f2);
 

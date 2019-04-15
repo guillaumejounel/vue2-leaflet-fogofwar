@@ -24,6 +24,14 @@ const props = {
   latLng: {
     type: [Object, Array],
     default: () => []
+  },
+  slope: {
+    type: Number,
+    default: 2
+  },
+  stdDeviation: {
+    type: Number,
+    default: 10
   }
 };
 
@@ -38,6 +46,12 @@ export default {
     if (this.maskId) {
       this.circleOptions.maskId = this.maskId;
       this.circleOptions.maskOpacity = this.maskOpacity;
+    }
+    if (this.slope) {
+      this.circleOptions.slope = this.slope;
+    }
+    if (this.stdDeviation) {
+      this.circleOptions.stdDeviation = this.stdDeviation;
     }
     this.mapObject = L.circle(this.latLng, this.circleOptions);
     L.DomEvent.on(this.mapObject, this.$listeners);

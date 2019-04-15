@@ -24,6 +24,14 @@ const props = {
   latLngs: {
     type: Array,
     default: () => []
+  },
+  slope: {
+    type: Number,
+    default: 2
+  },
+  stdDeviation: {
+    type: Number,
+    default: 10
   }
 };
 
@@ -38,6 +46,12 @@ export default {
     if (this.maskId) {
       this.polygonOptions.maskId = this.maskId;
       this.polygonOptions.maskOpacity = this.maskOpacity;
+    }
+    if (this.slope) {
+      this.polygonOptions.slope = this.slope;
+    }
+    if (this.stdDeviation) {
+      this.polygonOptions.stdDeviation = this.stdDeviation;
     }
     this.mapObject = L.polygon(this.latLngs, this.polygonOptions);
     L.DomEvent.on(this.mapObject, this.$listeners);
