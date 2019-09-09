@@ -39,18 +39,19 @@ export default {
   props,
   mounted() {
     if (this.mask) {
-      this.mapObject.options.mask = this.mask;
+      this.circleOptions.mask = this.mask;
     }
     if (this.maskId) {
-      this.mapObject.options.maskId = this.maskId;
-      this.mapObject.options.maskOpacity = this.maskOpacity;
+      this.circleOptions.maskId = this.maskId;
+      this.circleOptions.maskOpacity = this.maskOpacity;
     }
     if (this.slope) {
-      this.mapObject.options.slope = this.slope;
+      this.circleOptions.slope = this.slope;
     }
     if (this.stdDeviation) {
-      this.mapObject.options.stdDeviation = this.stdDeviation;
+      this.circleOptions.stdDeviation = this.stdDeviation;
     }
+    this.mapObject = L.circle(this.latLng, this.circleOptions);
     L.DomEvent.on(this.mapObject, this.$listeners);
     propsBinder(this, this.mapObject, this.$options.props);
     this.ready = true;

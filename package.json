@@ -1,6 +1,6 @@
 {
   "name": "vue2-leaflet-fogofwar",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Fog of war plugin extension for vue2-leaflet package",
   "main": "plugin.js",
   "repository": {

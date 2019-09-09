@@ -39,18 +39,19 @@ export default {
   props,
   mounted() {
     if (this.mask) {
-      this.mapObject.options.mask = this.mask;
+      this.polygonOptions.mask = this.mask;
     }
     if (this.maskId) {
-      this.mapObject.options.maskId = this.maskId;
-      this.mapObject.options.maskOpacity = this.maskOpacity;
+      this.polygonOptions.maskId = this.maskId;
+      this.polygonOptions.maskOpacity = this.maskOpacity;
     }
     if (this.slope) {
-      this.mapObject.options.slope = this.slope;
+      this.polygonOptions.slope = this.slope;
     }
     if (this.stdDeviation) {
-      this.mapObject.options.stdDeviation = this.stdDeviation;
+      this.polygonOptions.stdDeviation = this.stdDeviation;
     }
+    this.mapObject = L.polygon(this.latLngs, this.polygonOptions);
     L.DomEvent.on(this.mapObject, this.$listeners);
     propsBinder(this, this.mapObject, this.$options.props);
     this.ready = true;
