@@ -21,7 +21,13 @@ const props = {
   },
   latLng: {
     type: [Object, Array],
-    default: () => []
+    default: () => [
+      [90, -999000],
+      [90, 999000],
+      [-90, 999000],
+      [-90, -999000],
+      [90, -999000]
+    ]
   },
   slope: {
     type: Number,
