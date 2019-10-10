@@ -20,6 +20,7 @@ In `main.js`:
 In your component:
 
     <l-polygon-fog-of-war
+      :visible="..."
       :latLngs="..."
       :opacity="0"
       :fillOpacity="0"
@@ -27,6 +28,7 @@ In your component:
       mask="myMask"
     />
     <l-circle-fog-of-war
+      :visible="..."
       :fillOpacity="0"
       :maskOpacity="0.7"
       :latLng="..."
@@ -35,6 +37,7 @@ In your component:
       maskId="myMask"
     />
     <l-polygon-fog-of-war
+      :visible="..."
       :fillOpacity="0"
       :maskOpacity="0.7"
       :latLngs="..."

@@ -63,9 +63,20 @@ export default {
     this.ready = true;
     this.parentContainer = findRealParent(this.$parent);
     this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(() => {
+      this.mapObject._renderer._update();
+    });
   },
   beforeDestroy() {
     this.parentContainer.removeLayer(this);
+  },
+  watch: {
+    visible() {
+      console.log("visible", this.mapObject);
+      this.$nextTick(() => {
+        this.mapObject._renderer._update();
+      });
+    }
   }
 };
 </script>
