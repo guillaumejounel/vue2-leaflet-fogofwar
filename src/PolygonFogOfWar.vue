@@ -72,7 +72,6 @@ export default {
   },
   watch: {
     visible() {
-      console.log("visible", this.mapObject);
       this.$nextTick(() => {
         this.mapObject._renderer._update();
       });
