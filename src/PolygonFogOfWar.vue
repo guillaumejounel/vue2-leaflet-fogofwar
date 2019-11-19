@@ -1,5 +1,7 @@
 <template>
-  <div style="display: none;"><slot v-if="ready" /></div>
+  <div style="display: none;">
+    <slot v-if="ready" />
+  </div>
 </template>
 
 <script>
@@ -63,18 +65,18 @@ export default {
     this.ready = true;
     this.parentContainer = findRealParent(this.$parent);
     this.parentContainer.addLayer(this, !this.visible);
-    this.$nextTick(() => {
-      this.mapObject._renderer._update();
-    });
+    this.$nextTick(
+      () => this.mapObject._renderer && this.mapObject._renderer._update()
+    );
   },
   beforeDestroy() {
     this.parentContainer.removeLayer(this);
   },
   watch: {
     visible() {
-      this.$nextTick(() => {
-        this.mapObject._renderer._update();
-      });
+      this.$nextTick(
+        () => this.mapObject._renderer && this.mapObject._renderer._update()
+      );
     }
   }
 };
