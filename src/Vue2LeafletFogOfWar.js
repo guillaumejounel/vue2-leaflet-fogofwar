@@ -10,7 +10,6 @@ import L from "leaflet";
     L.SVG.include({
       __setMask: function(layer) {
         let path = layer._path;
-        layer._path.remove();
         path.setAttribute("mask", `url(#mask_${layer.options.maskId})`);
         path.setAttribute("fill", "black");
         path.setAttribute("fill-opacity", layer.options.maskOpacity);
@@ -112,6 +111,7 @@ import L from "leaflet";
 
           if (mask && maskPath && maskPath[_ref_id]) {
             maskPath[_ref_id].setAttribute("d", path);
+            layer._path.setAttribute("d", path);
           } else {
             if (maskId && maskPath && maskPath[`whitePath_${maskId}`]) {
               maskPath[`whitePath_${maskId}`].setAttribute("d", path);
@@ -125,20 +125,16 @@ import L from "leaflet";
 
       let _old_removePath = this._removePath;
       this._removePath = function(layer) {
-        if (layer.options.mask || layer.options.maskId) {
-          if (layer._leaflet_id) {
+
+        if ((layer.options.mask || layer.options.maskId) && layer._leaflet_id) {
             let mask = layer.options.mask,
               maskId = layer.options.maskId;
-
             if (this._defs && this._defs.children[`mask_${mask || maskId}`])
               this._defs.children[`mask_${mask || maskId}`].remove();
             if (this._defs && this._defs.children[`filter_${mask || maskId}`])
               this._defs.children[`filter_${mask || maskId}`].remove();
-          }
-          _old_removePath.apply(this, arguments);
-        } else {
-          _old_removePath.apply(this, arguments);
         }
+        _old_removePath.apply(this, arguments);
       };
     });
   }
